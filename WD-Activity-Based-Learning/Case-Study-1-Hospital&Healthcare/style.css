@@ -1,0 +1,52 @@
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:#f5f8ff;color:#15264b}
+a{text-decoration:none}
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:22px 7%;background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 5px 25px #243c6410}
+.logo{font-size:27px;font-weight:800;color:#123c79}
+.logo span{color:#12b8b0}
+nav{display:flex;gap:25px}
+nav a{color:#435575;font-size:14px;font-weight:600}
+nav a:hover{color:#10a9ad}
+.nav-btn,.primary-btn{display:inline-block;background:linear-gradient(110deg,#0879d9,#14c5b7);color:white;padding:13px 22px;border-radius:12px;font-weight:600;box-shadow:0 8px 22px #079dba35;transition:.3s}
+.nav-btn:hover,.primary-btn:hover{transform:translateY(-4px);box-shadow:0 12px 25px #079dba55}
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px;padding:75px 8%;background:radial-gradient(ellipse at 90% 15%,#c8f5f1 0,transparent 35%),linear-gradient(135deg,#f7faff,#eaf1ff)}
+.tag,.section-heading span,.contact>span{color:#079fa7;font-size:12px;font-weight:800;letter-spacing:2px}
+h1{font-size:clamp(40px,5vw,65px);line-height:1.15;margin:22px 0;color:#142c58}
+h1 span{background:linear-gradient(90deg,#087de1,#10b9ad);background-clip:text;color:transparent}
+.hero-content>p,.innovation p{color:#64748b;line-height:1.9;margin-bottom:27px;max-width:510px}
+.text-btn{color:#15568d;font-weight:700;margin-left:18px}
+.hero-image{position:relative}
+.hero-image>img{width:100%;height:420px;object-fit:cover;border-radius:30px;box-shadow:0 25px 60px #123c7930}
+.floating-card{position:absolute;bottom:25px;left:-25px;background:#ffffffed;padding:18px;border-radius:15px;box-shadow:0 10px 30px #123c7925;color:#087ca8}
+.floating-card b,.floating-card small{display:block;margin-top:5px}
+.floating-card small{color:#64748b}
+.stats{display:flex;gap:30px;margin-top:40px}
+.stats strong,.stats small{display:block}
+.stats strong{font-size:25px;color:#087fa8}
+.stats small{font-size:11px;color:#718096}
+.services,.doctors{padding:80px 8%}
+.section-heading{text-align:center;margin-bottom:40px}
+.section-heading h2,.innovation h2,.contact h2{font-size:clamp(27px,3vw,39px);margin:12px 0;color:#173462}
+.section-heading p{color:#748198}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.service-card{background:white;border-radius:20px;overflow:hidden;padding-bottom:22px;box-shadow:0 10px 35px #29466b0c;transition:.3s}
+.service-card:hover,.doctor-grid article:hover{transform:translateY(-8px);box-shadow:0 18px 35px #29466b20}
+.service-card img{width:100%;height:175px;object-fit:cover}
+.service-card h3,.service-card p{margin:15px 17px 0}
+.service-card p{font-size:13px;line-height:1.7;color:#718096}
+.innovation{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center;padding:65px 8%;background:linear-gradient(120deg,#102d61,#176da3,#0a9b9c);color:white}
+.innovation h2{color:white;margin-top:18px}
+.innovation p{color:#e1efff;margin:18px 0}
+.innovation img{width:100%;height:330px;object-fit:cover;border-radius:25px;box-shadow:0 15px 45px #001b3b55}
+.doctor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.doctor-grid article{text-align:center;background:white;border-radius:22px;padding:15px 15px 25px;box-shadow:0 10px 30px #29466b0c;transition:.3s}
+.doctor-grid img{width:100%;height:250px;object-fit:cover;object-position:top;border-radius:15px}
+.doctor-grid h3{margin-top:15px;color:#183d70}
+.doctor-grid p{color:#0aa9aa;font-size:13px;margin-top:5px}
+.contact{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#dff8f6,#e5edff)}
+.contact p{color:#61738e;margin:12px 0 25px}
+footer{display:flex;justify-content:space-between;gap:15px;padding:25px 8%;background:#10264d;color:white;font-size:13px}
+footer span{color:#b9cce8}
+@media(max-width:900px){.service-grid{grid-template-columns:repeat(2,1fr)}.hero{gap:25px;padding:55px 5%}.navbar{padding:18px 4%}nav{gap:12px}}
+@media(max-width:600px){.navbar{flex-wrap:wrap;gap:15px}nav{order:3;width:100%;justify-content:space-between}.nav-btn{font-size:11px;padding:10px}.hero,.innovation{grid-template-columns:1fr}.hero-image>img{height:300px}.floating-card{left:8px}.stats{gap:18px}.service-grid,.doctor-grid{grid-template-columns:1fr}.services,.doctors{padding:55px 6%}.innovation{padding:50px 6%}.innovation img{height:250px}footer{flex-direction:column}}

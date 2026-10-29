@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CraveBite | Food Ordering</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <p>FRESH • TASTY • DELIVERED</p>
+    <h1>Crave<span>Bite</span> 🍽️</h1>
+    <p>Your cravings deserve something delicious!</p>
+    <a href="#menu">Explore Our Menu ↓</a>
+  </header>
+  <section class="quote">
+    <h2>A Taste of Happiness ❤️</h2>
+    <p>"Good food brings people together and makes every moment special."</p>
+  </section>
+  <main id="menu">
+    <h2>Our Delicious Menu</h2>
+    <p class="subtitle">Choose your favourite food!</p>
+    <section class="food-grid">
+      <article class="food-card"><img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=500&q=70" alt="Chicken biryani"><div class="details"><span>★ Popular</span><h3>Chicken Biryani</h3><b>₹180</b><button onclick="order('Chicken Biryani',180)">Order Now</button></div></article>
+      <article class="food-card"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=70" alt="Pizza"><div class="details"><span>★ Best Seller</span><h3>Cheese Burst Pizza</h3><b>₹220</b><button onclick="order('Cheese Burst Pizza',220)">Order Now</button></div></article>
+      <article class="food-card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=70" alt="Chocolate cake"><div class="details"><span>★ Highly Rated</span><h3>Chocolate Cake</h3><b>₹150</b><button onclick="order('Chocolate Cake',150)">Order Now</button></div></article>
+      <article class="food-card"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=70" alt="Cheeseburger"><div class="details"><span>★ Customer Favorite</span><h3>Cheese Burger</h3><b>₹120</b><button onclick="order('Cheese Burger',120)">Order Now</button></div></article>
+      <article class="food-card"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=500&q=70" alt="Pasta"><div class="details"><span>★ Trending</span><h3>White Sauce Pasta</h3><b>₹140</b><button onclick="order('White Sauce Pasta',140)">Order Now</button></div></article>
+      <article class="food-card"><img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=70" alt="French fries"><div class="details"><span>★ Fresh & Hot</span><h3>French Fries</h3><b>₹90</b><button onclick="order('French Fries',90)">Order Now</button></div></article>
+      <article class="food-card"><img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=70" alt="Fried chicken"><div class="details"><span>★ Crispy Treat</span><h3>Fried Chicken</h3><b>₹190</b><button onclick="order('Fried Chicken',190)">Order Now</button></div></article>
+      <article class="food-card"><img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=500&q=70" alt="Paneer dish"><div class="details"><span>★ Veg Special</span><h3>Paneer Tikka</h3><b>₹160</b><button onclick="order('Paneer Tikka',160)">Order Now</button></div></article>
+      <article class="food-card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=500&q=70" alt="Ice cream dessert"><div class="details"><span>★ Sweet Delight</span><h3>Brownie & Ice Cream</h3><b>₹130</b><button onclick="order('Brownie & Ice Cream',130)">Order Now</button></div></article>
+    </section>
+    <section class="orders" id="orders">
+      <h2>🛒 Your Order Details</h2>
+      <ul id="order-list"><li>No items ordered yet.</li></ul>
+      <h3>Total: ₹<span id="total">0</span></h3>
+      <button onclick="clearOrders()">Clear Order</button>
+      <p id="message">Select Order Now to add food to your order.</p>
+    </section>
+  </main>
+  <footer>© 2026 CraveBite | Good Food, Good Mood ❤️</footer>
+  <script>
+    const cart = {};
+    function order(name, price) {
+      if (cart[name]) cart[name].quantity++;
+      else cart[name] = {price: price, quantity: 1};
+      renderOrders();
+    }
+    function renderOrders() {
+      const list = document.getElementById('order-list');
+      list.innerHTML = '';
+      let total = 0;
+      Object.entries(cart).forEach(([name, item]) => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+        const li = document.createElement('li');
+        li.textContent = `${name} × ${item.quantity} — ₹${subtotal}`;
+        list.appendChild(li);
+      });
+      document.getElementById('total').textContent = total;
+      document.getElementById('message').textContent =
+        total ? 'Your delicious order is ready to review!' : 'Your cart is empty.';
+    }
+    function clearOrders() {
+      Object.keys(cart).forEach(name => delete cart[name]);
+      renderOrders();
+      document.getElementById('order-list').innerHTML = '<li>No items ordered yet.</li>';
+    }
+  </script>
+</body>
+</html>
